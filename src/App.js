@@ -11,13 +11,13 @@ class Counter extends Component {
   }
   
   //数値をプラスにする
-  handlePlusButton = () => {
+  plusButton = () => {
     const count = this.state.count
     this.setState({ count: count + 1 })
   }
   
   //数値をマイナスにする
-  handleMinusButton = () => {
+  minusButton = () => {
     const count = this.state.count
     this.setState({ count: count - 1 })
   }
@@ -27,8 +27,8 @@ class Counter extends Component {
     return (
       <React.Fragment>
         <div>count:{this.state.count} </div>  
-        <button onClick={this.handlePlusButton}>+1</button>
-        <button onClick={this.handleMinusButton}>-1</button>
+        <button onClick={this.plusButton}>+1</button>
+        <button onClick={this.minusButton}>-1</button>
       </React.Fragment>
     )
   }
