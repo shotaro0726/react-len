@@ -1,39 +1,25 @@
 import React, { Component } from 'react';
+import { conenct } from 'react-redux';
 
-const App = () => (<Counter></Counter>)
-
-class Counter extends Component {
-  
-  //初期化処理
-  constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-  }
-  
-  //数値をプラスにする
-  plusButton = () => {
-    const count = this.state.count
-    this.setState({ count: count + 1 })
-  }
-  
-  //数値をマイナスにする
-  minusButton = () => {
-    const count = this.state.count
-    this.setState({ count: count - 1 })
-  }
-  
-  //実際に画面に反映されるところ
+import { increment, decrement } from '../actions'
+class App extends Component {
   render() {
+    const props = this.props;
+
     return (
       <React.Fragment>
-        <div>count:{this.state.count} </div>  
-        <button onClick={this.plusButton}>+1</button>
-        <button onClick={this.minusButton}>-1</button>
+        <div>value:{this.props.value} </div>  
+        <button onClick={props.increment}>+1</button>
+        <button onClick={props.decrement}>-1</button>
       </React.Fragment>
     )
   }
 }
 
-
-
-export default App;
+const mapStateToProps = state => ({ value: state.count.value })
+// const mapDispatchToProps = dispatch => ({   
+//   increment: () => dispatch(increment()),
+//   decrement: () => dispatch(decrement()),
+// })
+const mapDispatchToProps = ({ increment, decrement })
+export default conenct(mapStateToProps, mapDispatchToProps)(App);
