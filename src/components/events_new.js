@@ -8,22 +8,22 @@ import TextField from 'material-ui/TextField';
 
 class EventsNew extends Component {
     constructor(props) {
-        super(props)
-        this.onSubmit = this.onSubmit.bind(this)
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
     }
     renderField(field) {
-        const { input, label, type, meta: { touched, error } } = field
+        const { input, label, type, meta: { touched, error } } = field;
         return (
             <TextField hintText={label} floatingLabelText={label} type={type} errorText={touched && error} {...input} fullWidth={true} />
         )
     }
     async onSubmit(values) {
-        await this.props.postEvent(values)
-        this.props.history.push('/')
+        await this.props.postEvent(values);
+        this.props.history.push('/');
     }
     render() {
         const { handleSubmit, pristine, submitting, invalid } = this.props;
-        const style = { margin: 12 }
+        const style = { margin: 12 };
         return (
             <form onSubmit={handleSubmit(this.onSubmit)}>
 

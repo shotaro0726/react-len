@@ -12,10 +12,10 @@ class EventsShow extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
   }
-
+  
   componentDidMount() {
-    const { id } = this.props.match.params
-    if (id) this.props.getEvent(id)
+    const { id } = this.props.match.params;
+    if (id) this.props.getEvent(id);
   }
 
   renderField(field) {
@@ -40,7 +40,7 @@ class EventsShow extends Component {
   }
   render() {
     const { handleSubmit, pristine, submitting, invalid } = this.props;
-    const style = { margin: 12 }
+    const style = { margin: 12 };
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -81,7 +81,7 @@ const validate = (values) => {
 };
 const mapDispatchToProps = ({ deleteEvent, getEvent, putEvent });
 const mapStateProps = (state, ownProps) => {
-  const event = state.events[ownProps.match.params.id]
+  const event = state.events[ownProps.match.params.id];
   return { initalValues: event, event }
 }
 export default conenct(
