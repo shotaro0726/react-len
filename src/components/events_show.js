@@ -19,12 +19,7 @@ class EventsShow extends Component {
   }
 
   renderField(field) {
-    const {
-      input,
-      label,
-      type,
-      meta: { touched, error },
-    } = field;
+    const { input,label,type,meta: { touched, error },} = field;
     return (
       <TextField hintText={label} floatingLabelText={label} type={type} errorText={touched && error} {...input} fullWidth={true} />
     );
